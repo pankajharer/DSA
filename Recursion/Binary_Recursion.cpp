@@ -14,7 +14,7 @@ bool binary(int arr[],int s,int e,int k)
 
     if(arr[mid] == k )
      {
-        return true;
+        return ;
      }
      else if(arr[mid] > k)
      {
@@ -32,7 +32,7 @@ int main()
 {
     int size=5;
     int arr[5]={4,5,8,5,6};
-    int f=5;
+    int f=10;
     bool check=binary(arr,0,size-1,f);
    
     if(check)
