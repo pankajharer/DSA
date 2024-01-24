@@ -2,49 +2,43 @@
 #include<algorithm>
 using namespace std;
 
-int partition(int arr[],int s,int e)
-{
-    int pivot=arr[s];
+int partition( int arr[], int s, int e) {
 
-    int cnt=0;
-    for(int i=s+1;i<=e;i++)
-    {
-        if(arr[i]<=pivot)
-        {
+    int pivot = arr[s];
+
+    int cnt = 0;
+    for(int i = s+1; i<=e; i++) {
+        if(arr[i] <=pivot) {
             cnt++;
         }
     }
 
-    int pivotIndex=s+cnt;
-    swap(arr[s],arr[pivotIndex]);
+    
+    int pivotIndex = s + cnt;
+    swap(arr[pivotIndex], arr[s]);
 
-    int i=s;
-    int j=e;
+     
+    int i = s, j = e;
 
-    while(i <pivotIndex && j>pivotIndex)
-    {
-        while(i <pivot)
+    while(i < pivotIndex && j > pivotIndex) {
+
+        while(arr[i] <= pivot) 
         {
-            if(arr[i]<=pivot)
-            {
-                i++;
-            }
+            i++;
         }
 
-        while(j >pivot)
-        {
-            if(arr[j] > pivot)
-            {
-                j--;
-            }
+        while(arr[j] > pivot) {
+            j--;
         }
-        if(i <pivotIndex && j>pivotIndex)
-        {
-        swap(arr[i++],arr[j--]);
+
+        if(i < pivotIndex && j > pivotIndex) {
+            swap(arr[i++], arr[j--]);
         }
 
     }
+
     return pivotIndex;
+
 }
 
 
